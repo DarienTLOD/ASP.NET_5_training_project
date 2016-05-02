@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
+using Microsoft.Data.Entity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using TrainingProject.Models;
 
 namespace TrainingProject
 {
@@ -30,6 +32,13 @@ namespace TrainingProject
         {
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
+
+            services.AddEntityFramework()
+           .AddSqlServer()
+           .AddDbContext<ApplicationDbContext>(options =>
+           {
+               options.UseSqlServer(Configuration["Data:ConnectionString"]);
+           });
 
             services.AddMvc();
         }
