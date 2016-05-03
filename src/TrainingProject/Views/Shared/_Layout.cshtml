@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - TrainingProject</title>
 
+    <link rel="icon" href="~/wwwroot/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="~/css/task.css" />
     <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css"
           asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
@@ -26,8 +27,8 @@
                 <a>БЛОГ</a>
             </b>
             <div class="login-group">
-                <div class="btn-login btn btn-default" data-target="#LoginModal" data-toggle="modal">Вход</div>
-                <div class="btn-signup btn btn-primary" data-toggle="modal" data-target="#RegisterModal">Создать бесплатную учетную запись</div>
+                <a class="btn-login btn btn-default" href="../Account/Login">Вход</a>
+                <a class="btn-signup btn btn-primary" href="../Account/Register">Создать бесплатную учетную запись</a>
             </div>
         </div>
     </header>
