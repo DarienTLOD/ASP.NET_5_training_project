@@ -6,7 +6,8 @@
     font-family:sans-serif;
 }
 
-header div b a {
+header a {
+    cursor: pointer;
     padding-right: 20px;
     color:grey;
     font-size: 12px;
@@ -129,7 +130,10 @@ h2 {
     margin-bottom: 50px;
 }
 
-.btn-intro-login {
+.btn-intro-register:visited {
+    color: #db4c3f;
+}
+.btn-intro-register {
     font-size: 16px;
     padding: 10px 12px 10px 12px;
     color: #db4c3f;
@@ -149,7 +153,7 @@ h2 {
     background-color: transparent;
 }
 
-.btn-intro-login:hover {
+.btn-intro-register:hover {
     text-decoration: none;
     background-color: white;
     color: #db4c3f;
