@@ -72,7 +72,7 @@ namespace TrainingProject
             app.UseCookieAuthentication(options =>
             {
                 options.AuthenticationScheme = "Cookies";
-                options.LoginPath = new Microsoft.AspNet.Http.PathString("/Home/Index");
+                options.LoginPath = new Microsoft.AspNet.Http.PathString("/Account/Login");
                 options.AutomaticAuthenticate = true;
                 options.AutomaticChallenge = true;
             });
