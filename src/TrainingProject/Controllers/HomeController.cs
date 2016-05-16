@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Mvc;
 
 namespace TrainingProject.Controllers
@@ -14,6 +11,12 @@ namespace TrainingProject.Controllers
         }
 
         public IActionResult Error()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public IActionResult Task()
         {
             return View();
         }
