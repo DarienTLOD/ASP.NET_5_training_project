@@ -1,31 +1,32 @@
 $(document).ready(function () {
     var planets = [{ name: "Saturn", satellites: 17 }, { name: "Jupiter", satellites: 16 }, { name: "Uranus", satellites: 14 }, { name: "Mars", satellites: 2 }, { name: "Neptune", satellites: 2 }, { name: "Earth", satellites: 1 }, { name: "Pluto", satellites: 1 }];
 
-    $('#task1').on('click', function (e) {
+    $("#task1").on("click", function () {
 
         cleanList();
 
-        var condition_text = $('.task_text').val();
+        var conditionText = $(".task_text").val();
 
-        if (condition_text == NaN || condition_text == "") return null;
+        if (conditionText === NaN || conditionText === "") return null;
 
-        var task1List = $('#task_result_place');
+        var task1List = $("#task_result_place");
 
         for (var i = 0; i < planets.length; i++) {
 
-            if (Number(condition_text) < planets[i].satellites) {
+            if (Number(conditionText) < planets[i].satellites) {
 
                 var column = $('<li class="list-group-item"><span class="label label-default label-pill pull-xs-right">' + planets[i].satellites + '</span>' + planets[i].name + '</li>');
 
                 task1List.append(column);
             }
         }
+        return null;
     });
 
-    $('#task2').on('click', function (e) {
+    $("#task2").on("click", function () {
         cleanList();
 
-        var conditionText = $('.task_text').val().split(' ');
+        var conditionText = $(".task_text").val().split(" ");
         var numArray = [];
         var i;
         for (i = 0; i < conditionText.length; i++) {
@@ -35,7 +36,7 @@ $(document).ready(function () {
         }
 
         var result = [];
-        var task1List = $('#task_result_place');
+        var task1List = $("#task_result_place");
 
         result.push(findMaxMin());
         result.push(sumOfOddEven());
@@ -43,7 +44,7 @@ $(document).ready(function () {
         result.push(sortArray().slice());
 
         for (i = 0; i < result.length; i++) {
-            var column = $('<li class="list-group-item">' + result[i] + '</li>');
+            var column = $('<li class="list-group-item">' + result[i] + "</li>");
 
             task1List.append(column);
         }
@@ -52,7 +53,7 @@ $(document).ready(function () {
             var max = Math.max.apply(null, numArray);
             var min = Math.min.apply(null, numArray);
 
-            return '<p>Max element: ' + max.toString() + ' with index: ' + numArray.indexOf(max) + '</p><p>Min element: ' + min.toString() + ' with index: ' + numArray.indexOf(min) + '</p>';
+            return "<p>Max element: " + max.toString() + " with index: " + numArray.indexOf(max) + "</p><p>Min element: " + min.toString() + ' with index: ' + numArray.indexOf(min) + '</p>';
         };
 
         function sumOfOddEven() {
@@ -61,7 +62,7 @@ $(document).ready(function () {
                 if (i % 2 === 0) oddSum += numArray[i];
                 else evenSum += numArray[i];
             }
-            return '<p>Sum of even is: ' + evenSum + '</p><p>Sum of odd is: ' + oddSum + '</p>';
+            return "<p>Sum of even is: " + evenSum + "</p><p>Sum of odd is: " + oddSum + "</p>";
         };
 
         function compact() {
@@ -69,7 +70,7 @@ $(document).ready(function () {
                 if (Math.abs(numArray[i]) <= 1) numArray.splice(i, 1);
             }
 
-            return 'New array: ' + numArray.toString();
+            return "New array: " + numArray.toString();
         };
 
         function sortArray() {
@@ -84,7 +85,7 @@ $(document).ready(function () {
     });
 
 
-    $('#task3').on('click', function (e) {
+    $('#task3').on('click', function () {
         cleanList();
 
         var conditionText = $('.task_text').val();
@@ -95,7 +96,7 @@ $(document).ready(function () {
 
         var wordsArray = conditionText.match(/[а-яА-яA-Za-z0-9]+/gi);
 
-        for (i = 0; i < wordsArray.length; i++) {
+        for (var i = 0; i < wordsArray.length; i++) {
             if (wordsArray[i].length > longestWord.length) {
                 longestWord = wordsArray[i];
                 longestWordIndex = i;
@@ -115,7 +116,7 @@ $(document).ready(function () {
         task1ListItems.remove();
     }
 
-    $("#task4").on("click", function (e) {
+    $("#task4").on("click", function () {
         var a1 = $("#A1").val();
         var a2 = $("#A2").val();
         var b1 = $("#B1").val();
