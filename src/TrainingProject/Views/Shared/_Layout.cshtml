@@ -1,6 +1,7 @@
 ﻿@using System.Threading.Tasks
 @model TrainingProject.Models.LoginModel
 @using Microsoft.ApplicationInsights.Extensibility
+@using Microsoft.AspNet.Mvc.Formatters
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,17 +20,29 @@
     <header>
         <div>
             <b>
-                <a class="logo" href="#"><div class="icon_wunderlist"></div>Wunderlist</a>
+                <a class="logo" href="#">
+                    <div class="icon_wunderlist"></div>Wunderlist
+                </a>
                 <a>PRO</a>
                 <a>БИЗНЕС</a>
                 <a href="#download">СКАЧАТЬ</a>
                 <a>ПОДДЕРЖКА</a>
                 <a>БЛОГ</a>
             </b>
-            <div class="login-group">
-                <a class="btn-login btn btn-default" href="../Account/Login">Вход</a>
-                <a class="btn-signup btn btn-primary" href="../Account/Register">Создать бесплатную учетную запись</a>
-            </div>
+            @if (User.Identity.IsAuthenticated == false)
+            {
+                <div class="login-group">
+                    <a class="btn-login btn btn-default" href="../Account/Login">Вход</a>
+                    <a class="btn-signup btn btn-primary" href="../Account/Register">Создать бесплатную учетную запись</a>
+                </div>
+
+            }
+            else
+            {
+                <div class="login-group">
+                    <a Id="Logout" class="btn-login btn btn-default" href="../Account/Logout">Выход</a>
+                </div>
+            }
         </div>
     </header>
     @RenderBody()

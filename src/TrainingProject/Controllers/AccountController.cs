@@ -41,6 +41,28 @@ namespace TrainingProject.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(RegisterModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _db.ApplicationUsers.FirstOrDefaultAsync(u => u.Email == model.Email && u.Password == model.Password);
+                if (user == null)
+                {
+                    // добавляем пользователя в бд
+                    _db.ApplicationUsers.Add(new ApplicationUser { Email = model.Email, Password = model.Password });
+                    await _db.SaveChangesAsync();
+
+                    await Authenticate(model.Email); // аутентификация
+
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                    ModelState.AddModelError("", "Некорректные логин и(или) пароль");
+            }
+            return View(model);
+        }
         private async Task Authenticate(string userName)
         {
             var claims = new List<Claim>
@@ -49,6 +71,11 @@ namespace TrainingProject.Controllers
                     };
             var id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
             await HttpContext.Authentication.SignInAsync("Cookies", new ClaimsPrincipal(id));
+        }
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.Authentication.SignOutAsync("Cookies");
+            return RedirectToAction("Login", "Account");
         }
 
     }

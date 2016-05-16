@@ -63,8 +63,7 @@
                             </g>
                         </svg>
                     </span>
-            <input type="text" asp-for="Email" name="email" value="" required="" placeholder="Электронная почта" title="Введите действительный адрес электронной почты.">
-            <span asp-validation-for="Email" />
+            <input type="Email" asp-for="Email" name="email" value="" required="" placeholder="Электронная почта" title="Введите действительный адрес электронной почты.">
         </div>
         <div class="row password">
             <span class="icon padlock">
@@ -85,7 +84,6 @@
                         </svg>
                     </span>
             <input asp-for="Password" name="password" required="" pattern=".{8,}" minlength="8" placeholder="Пароль" title="Пароль должен содержать не меньше 8 символов, в том числе в нижнем и верхнем регистре, а также цифры или специальные знаки (например, !#$).">
-            <span asp-validation-for="Password" />
         </div>
         <div class="row submit">
             <input type="submit" class="button big blue" value="Создать бесплатную учетную запись">

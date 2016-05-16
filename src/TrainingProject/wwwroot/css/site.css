@@ -6,7 +6,7 @@
     font-family:sans-serif;
 }
 
-header a {
+header div b a {
     padding-right: 20px;
     color:grey;
     font-size: 12px;
@@ -26,8 +26,8 @@ header a {
 a:link { text-decoration: none; }
 
 a:visited {
-    text-decoration: none; 
-    color:grey;
+    text-decoration: none;
+    color: grey;
 }
 
 a:active { text-decoration: none; }
@@ -66,7 +66,12 @@ a:hover {
     border-color: #adadad;
 }
 
+
+.btn-signup:visited {
+    color: white;
+}
 .btn-signup {
+    color: white;
     margin-right: 10px;
     background-color: #2b88d9;
 } 
