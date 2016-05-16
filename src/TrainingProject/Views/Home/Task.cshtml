@@ -31,9 +31,18 @@
             </div>
             <ul class="list-group" id="task_result_place"></ul>
         </div>
-        <div class="container">
+        <div id="variablesContainer" class="container col-md-12">
             <p>Введите уравнения прямых:</p>
-            <input type="text" id="x1" class="form-control">
+            <div class="row">
+                <input type="text" id="A1" class="form-control variables" placeholder="A1" pattern="[0-9]{,3}">
+                <input type="text" id="B1" class="form-control variables" placeholder="B1" pattern="[0-9]{,3}">
+                <input type="text" id="C1" class="form-control variables" placeholder="C1" pattern="[0-9]{,3}">
+            </div>
+            <div class="row">
+                <input type="text" id="A2" class="form-control variables" placeholder="A2" pattern="[0-9]{,3}">
+                <input type="text" id="B2" class="form-control variables" placeholder="B2" pattern="[0-9]{,3}">
+                <input type="text" id="C2" class="form-control variables" placeholder="C2" pattern="[0-9]{,3}">
+            </div>
         </div>
     </div>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"
@@ -43,7 +52,7 @@
     <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/bootstrap.min.js"
             asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
             asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
-    </script>  
+    </script>
     <script src="~/js/task.js"></script>
 </body>
 </html>

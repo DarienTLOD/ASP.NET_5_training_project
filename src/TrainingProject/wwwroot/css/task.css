@@ -1,0 +1,54 @@
+.input-group {
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+
+#task_result_place {
+        margin-top: 20px;
+}
+.list-group-item {
+    height: auto;
+    padding: 20px 12px 20px 12px;
+}
+
+.pull-xs-right {
+    float: right!important;
+}
+
+.label-default {
+    background-color: #818a91;
+}
+
+.label-pill {
+    padding-right: .6em;
+    padding-left: .6em;
+    border-radius: 10rem;
+}
+
+.label {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 50px;
+    padding: 5px 10px 5px 10px;
+}
+p {
+    margin-bottom: 0px; 
+}
+
+#variablesContainer {
+    margin-left: 35%; 
+}
+
+.variables {
+    width: 70px;
+    float: left;
+    display: inline-block;
+    margin: 20px 40px 20px 0;
+}
