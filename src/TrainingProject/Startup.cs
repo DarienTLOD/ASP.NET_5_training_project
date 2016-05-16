@@ -40,6 +40,8 @@ namespace TrainingProject
                 options.UseSqlServer(Configuration["Data:ConnectionString"]);
             });
 
+
+
             services.AddMvc();
         }
 
@@ -66,6 +68,14 @@ namespace TrainingProject
             app.UseApplicationInsightsExceptionTelemetry();
 
             app.UseStaticFiles();
+
+            app.UseCookieAuthentication(options =>
+            {
+                options.AuthenticationScheme = "Cookies";
+                options.LoginPath = new Microsoft.AspNet.Http.PathString("/Account/Login");
+                options.AutomaticAuthenticate = true;
+                options.AutomaticChallenge = true;
+            });
 
             app.UseMvc(routes =>
             {
