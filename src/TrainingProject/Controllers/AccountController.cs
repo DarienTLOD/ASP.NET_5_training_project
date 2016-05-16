@@ -36,6 +36,11 @@ namespace TrainingProject.Controllers
             return View(model);
         }
 
+        public IActionResult Register()
+        {
+            return View();
+        }
+
         private async Task Authenticate(string userName)
         {
             var claims = new List<Claim>

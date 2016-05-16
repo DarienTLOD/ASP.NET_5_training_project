@@ -16,7 +16,6 @@
 </head>
 <body>
     <div class="logo"></div>
-
     <div class="card login">
         <form asp-action="Login" asp-controller="Account" asp-anti-forgery="true" class="auth-form login">
             <div class="row email">
@@ -38,6 +37,7 @@
                     </svg>
                 </span>
                 <input asp-for="Email" type="email" name="email" value="" required="" autofocus="" title="Введите действительный адрес электронной почты." placeholder="Электронная почта">
+                <span asp-validation-for="Email" />
             </div>
             <div class="row password">
                 <span class="icon padlock">
@@ -58,6 +58,8 @@
                     </svg>
                 </span>
                 <input asp-for="Password" type="password" name="password" required="" placeholder="Пароль">
+                <span asp-validation-for="Password" />
+
             </div>
             <div class="row submit">
                 <input type="submit" class="button big blue" value="Вход">
@@ -122,7 +124,7 @@
         </div>
         <span class="link signup">
             Нет учетной записи?
-           @Html.ActionLink("Создать учетную запись", "Register","Home")
+           @Html.ActionLink("Создать учетную запись", "Register","Account")
         </span>
     </div>
 
