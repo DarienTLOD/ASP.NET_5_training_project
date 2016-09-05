@@ -88,7 +88,7 @@ a:hover {
 }
 
 .intro-content {
-    padding: 70px 0px 70px 10px ;
+    padding: 70px 0 70px 10px ;
     margin-left: 24%;
     width: 1084px;
     min-width: 1084px;
@@ -169,14 +169,14 @@ h2 {
     height: 369px;
     width: 100%;
     background: linear-gradient(#fafafa, #f3f3f3);
-    padding: 50px 0px 50px 0px;
+    padding: 50px 0 50px 0;
     display: block;
 }
 
 .wrapper {
     position: relative;
     width: 920px;
-    margin: 0px 0px 0px 26%;
+    margin: 0 0 0 26%;
     box-sizing: border-box;
     min-height: 100%;
     display: inline-block;
@@ -192,14 +192,6 @@ h2 {
     position: relative;
 }
 
-first-column {
-    left: 50%;    
-}
-
-second-column {
-    right: 50%;
-}
-
 .features-todo {
     margin-top: 35px;
     padding-right: 8px;
@@ -211,7 +203,7 @@ second-column {
     height: 450px;
     width: 100%;
     background: linear-gradient(#fafafa, #f3f3f3);
-    padding: 50px 0px 50px 0px;
+    padding: 50px 0 50px 0;
     display: block;
 }
 
@@ -225,7 +217,7 @@ h3 {
     font-size: 36px;
     line-height: 40px;
     font-weight: 200;
-    margin: 0px 0px 5px 0px;
+    margin: 0 0 5px 0;
 }
 
 p.subline {
@@ -250,12 +242,12 @@ p.subline {
     height: 570px;
     width: 100%;
     background: linear-gradient(#fafafa, #f3f3f3);
-    padding: 100px 0px 50px 0px;
+    padding: 100px 0 50px 0;
     display: block;
 }
 
 #collab-image {
-    margin: -100px 0px 40px -450px ;
+    margin: -100px 0 40px -450px ;
     height: 530px;
     width: 844px;
 }
@@ -273,7 +265,7 @@ p.subline {
     height: 962px;
     width: 100%;
     background: linear-gradient(#fafafa, #f3f3f3);
-    padding: 50px 0px 50px 0px;
+    padding: 50px 0 50px 0;
     display: block;
 }
 
