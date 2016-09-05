@@ -67,7 +67,7 @@ $(document).ready(function () {
 
         function compact() {
             for (i = 0; i < numArray.length; i++) {
-                if (Math.abs(numArray[i]) <= 1) numArray.splice(i, 1);
+                if (Math.abs(Number(numArray[i])) < 1) numArray.splice(i, 1);
             }
 
             return "New array: " + numArray.toString();
@@ -94,7 +94,7 @@ $(document).ready(function () {
         var wordsWithCaps = [];
         var longestWord = "", longestWordIndex = 0;
 
-        var wordsArray = conditionText.match(/[а-яА-яA-Za-z0-9]+/gi);
+        var wordsArray = conditionText.match(/([A-Za-z_.-])+\w+/gi);
 
         for (var i = 0; i < wordsArray.length; i++) {
             if (wordsArray[i].length > longestWord.length) {
@@ -127,9 +127,23 @@ $(document).ready(function () {
         cleanList();
 
         var task1List = $("#task_result_place");
-        var column = $('<li class="list-group-item">Cosinus = ' + Math.acos(cosPhi) * 180 / Math.PI + "°</li>");
+        var column = $('<li class="list-group-item">Angle in degrees = ' + Math.acos(cosPhi) * 180 / Math.PI + '°</li><li class="list-group-item">Angle in radians = ' + Math.acos(cosPhi) + "</li>");
 
         task1List.append(column);
+    });
+
+    $("#state").change(function () {
+        // получаем выбранный id
+        var id = $(this).val();
+        $.ajax({
+            type: "GET",
+            url: "GetItems/" + id,
+            success: function (data) {
+
+                // заменяем содержимое присланным частичным представлением
+                $("#city").replaceWith(data);
+            }
+        });
     });
 
 });

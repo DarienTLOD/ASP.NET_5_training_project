@@ -14,38 +14,45 @@
     <link rel="stylesheet" href="~/css/task.css">
 </head>
 <body>
-    <div class="container">
-        <div class="col-md-12">
-            <div class="input-group">
-                <input type="text" class="task_text form-control">
-                <div class="input-group-btn">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose task <span class="caret"></span></button>
-                    <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a id="task1">Task 1</a></li>
-                        <li><a id="task2">Task 2</a></li>
-                        <li><a id="task3">Task 3</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a id="task4">Task B</a></li>
-                    </ul>
-                </div>
+<div class="container">
+    <div class="col-md-12">
+        <div class="input-group">
+            <input type="text" class="task_text form-control">
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose task <span class="caret"></span></button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a id="task1">Task 1</a></li>
+                    <li><a id="task2">Task 2</a></li>
+                    <li><a id="task3">Task 3</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a id="task4">Task B</a></li>
+                </ul>
             </div>
-            <ul class="list-group" id="task_result_place"></ul>
         </div>
-        <div id="variablesContainer" class="container col-md-12">
-            <p>Введите уравнения прямых:</p>
-            <div class="row">
-                <input type="text" id="A1" class="form-control variables" placeholder="A1" pattern="[0-9]{,3}">
-                <input type="text" id="B1" class="form-control variables" placeholder="B1" pattern="[0-9]{,3}">
-                <input type="text" id="C1" class="form-control variables" placeholder="C1" pattern="[0-9]{,3}">
-            </div>
-            <div class="row">
-                <input type="text" id="A2" class="form-control variables" placeholder="A2" pattern="[0-9]{,3}">
-                <input type="text" id="B2" class="form-control variables" placeholder="B2" pattern="[0-9]{,3}">
-                <input type="text" id="C2" class="form-control variables" placeholder="C2" pattern="[0-9]{,3}">
-            </div>
+        <ul class="list-group" id="task_result_place"></ul>
+    </div>
+    <div id="variablesContainer" class="container col-md-12">
+        <p>Введите уравнения прямых:</p>
+        <div class="row">
+            <input type="text" id="A1" class="form-control variables" placeholder="A1" pattern="[0-9]{,3}">
+            <input type="text" id="B1" class="form-control variables" placeholder="B1" pattern="[0-9]{,3}">
+            <input type="text" id="C1" class="form-control variables" placeholder="C1" pattern="[0-9]{,3}">
+        </div>
+        <div class="row">
+            <input type="text" id="A2" class="form-control variables" placeholder="A2" pattern="[0-9]{,3}">
+            <input type="text" id="B2" class="form-control variables" placeholder="B2" pattern="[0-9]{,3}">
+            <input type="text" id="C2" class="form-control variables" placeholder="C2" pattern="[0-9]{,3}">
         </div>
     </div>
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"
+    <h3>Выберите страну</h3>
+    @Html.DropDownList("State", ViewBag.States as SelectList, new {id = "state"})
+    <h3>Выберите город</h3>
+    @Html.DropDownList("City", ViewBag.Cities as SelectList, new {id = "city"})
+
+
+
+</div>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"
             asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
             asp-fallback-test="window.jQuery">
     </script>
