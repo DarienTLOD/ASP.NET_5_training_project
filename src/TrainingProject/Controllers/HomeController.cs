@@ -28,15 +28,20 @@ namespace TrainingProject.Controllers
         [Authorize]
         public IActionResult Task()
         {
-            int selectedIndex = 1;
-            SelectList states = new SelectList(db.States, "Id", "Name", selectedIndex);
+            var countries = new SelectList(db.Countries, "Id", "Name", 1);
+            ViewBag.Countries = countries;
+            var states = new SelectList(db.States.Where(c => c.CountryId == 1), "Id", "Name");
             ViewBag.States = states;
-            SelectList cities = new SelectList(db.Cities.Where(c => c.StateId == selectedIndex), "Id", "Name");
+            var cities = new SelectList(db.Cities.Where(c => c.StateId == 1), "Id", "Name");
             ViewBag.Cities = cities;
             return View();
         }
 
-        public ActionResult GetItems(int id)
+        public ActionResult GetStates(int id)
+        {
+            return PartialView(db.States.Where(c => c.CountryId == id).ToList());
+        }
+        public ActionResult GetCities(int id)
         {
             return PartialView(db.Cities.Where(c => c.StateId == id).ToList());
         }

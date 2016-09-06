@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Microsoft.Data.Entity;
+﻿using Microsoft.Data.Entity;
 using Microsoft.Extensions.Configuration;
 
 namespace TrainingProject.Models
@@ -9,13 +8,8 @@ namespace TrainingProject.Models
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<State> States { get; set; }
         public DbSet<City> Cities { get; set; }
+        public DbSet<Country> Countries { get; set; }
 
-
-
-        public ApplicationDbContext()
-            : base()
-        {
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

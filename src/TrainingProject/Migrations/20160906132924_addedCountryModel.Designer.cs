@@ -8,9 +8,10 @@ using TrainingProject.Models;
 namespace TrainingProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160906132924_addedCountryModel")]
+    partial class addedCountryModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
@@ -43,24 +44,12 @@ namespace TrainingProject.Migrations
                     b.HasKey("Id");
                 });
 
-            modelBuilder.Entity("TrainingProject.Models.Country", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-                });
-
             modelBuilder.Entity("TrainingProject.Models.State", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("CountryId");
-
-                    b.Property<int?>("CountryId1");
 
                     b.Property<string>("Name");
 
@@ -72,13 +61,6 @@ namespace TrainingProject.Migrations
                     b.HasOne("TrainingProject.Models.State")
                         .WithMany()
                         .HasForeignKey("StateId");
-                });
-
-            modelBuilder.Entity("TrainingProject.Models.State", b =>
-                {
-                    b.HasOne("TrainingProject.Models.Country")
-                        .WithMany()
-                        .HasForeignKey("CountryId1");
                 });
         }
     }

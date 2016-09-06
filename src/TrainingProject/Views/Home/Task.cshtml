@@ -1,7 +1,6 @@
 ﻿@{
     Layout = null;
 }
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,54 +11,57 @@
           asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
           asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
     <link rel="stylesheet" href="~/css/task.css">
+    <link rel="stylesheet" href="~/lib/bootstrap-select/dist/css/bootstrap-select.min.css">
 </head>
 <body>
-<div class="container">
-    <div class="col-md-12">
-        <div class="input-group">
-            <input type="text" class="task_text form-control">
-            <div class="input-group-btn">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose task <span class="caret"></span></button>
-                <ul class="dropdown-menu dropdown-menu-right">
-                    <li><a id="task1">Task 1</a></li>
-                    <li><a id="task2">Task 2</a></li>
-                    <li><a id="task3">Task 3</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a id="task4">Task B</a></li>
-                </ul>
+    <div class="container">
+        <div class="col-md-12">
+            <div class="input-group">
+                <input type="text" class="task_text form-control">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose task <span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a id="task1">Task 1</a></li>
+                        <li><a id="task2">Task 2</a></li>
+                        <li><a id="task3">Task 3</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a id="task4">Task B</a></li>
+                    </ul>
+                </div>
+            </div>
+            <ul class="list-group" id="task_result_place"></ul>
+        </div>
+        <div id="variablesContainer" class="container col-md-12">
+            <p>Введите уравнения прямых:</p>
+            <div class="row">
+                <input type="text" id="A1" class="form-control variables" placeholder="A1" pattern="[0-9]{,3}">
+                <input type="text" id="B1" class="form-control variables" placeholder="B1" pattern="[0-9]{,3}">
+                <input type="text" id="C1" class="form-control variables" placeholder="C1" pattern="[0-9]{,3}">
+            </div>
+            <div class="row">
+                <input type="text" id="A2" class="form-control variables" placeholder="A2" pattern="[0-9]{,3}">
+                <input type="text" id="B2" class="form-control variables" placeholder="B2" pattern="[0-9]{,3}">
+                <input type="text" id="C2" class="form-control variables" placeholder="C2" pattern="[0-9]{,3}">
             </div>
         </div>
-        <ul class="list-group" id="task_result_place"></ul>
+        <h3>Выберите Страну</h3>
+        @Html.DropDownList("Country", ViewBag.Countries as SelectList, new { id = "country"})
+        <h3>Выберите Штат</h3>
+        @Html.DropDownList("State", ViewBag.States as SelectList, new { id = "state"})
+        <h3>Выберите Город</h3>
+        @Html.DropDownList("City", ViewBag.Cities as SelectList, new { id = "city"})
+
     </div>
-    <div id="variablesContainer" class="container col-md-12">
-        <p>Введите уравнения прямых:</p>
-        <div class="row">
-            <input type="text" id="A1" class="form-control variables" placeholder="A1" pattern="[0-9]{,3}">
-            <input type="text" id="B1" class="form-control variables" placeholder="B1" pattern="[0-9]{,3}">
-            <input type="text" id="C1" class="form-control variables" placeholder="C1" pattern="[0-9]{,3}">
-        </div>
-        <div class="row">
-            <input type="text" id="A2" class="form-control variables" placeholder="A2" pattern="[0-9]{,3}">
-            <input type="text" id="B2" class="form-control variables" placeholder="B2" pattern="[0-9]{,3}">
-            <input type="text" id="C2" class="form-control variables" placeholder="C2" pattern="[0-9]{,3}">
-        </div>
-    </div>
-    <h3>Выберите страну</h3>
-    @Html.DropDownList("State", ViewBag.States as SelectList, new {id = "state"})
-    <h3>Выберите город</h3>
-    @Html.DropDownList("City", ViewBag.Cities as SelectList, new {id = "city"})
-
-
-
-</div>
-<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"
             asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
             asp-fallback-test="window.jQuery">
     </script>
     <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/bootstrap.min.js"
             asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
             asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+
     </script>
+    <script src="~/lib/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
     <script src="~/js/task.js"></script>
 </body>
 </html>
