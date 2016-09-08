@@ -132,6 +132,39 @@ $(document).ready(function () {
         task1List.append(column);
     });
 
+    $("#country").change(function () {
+        var countryId = $(this).val();
+        $.ajax({
+            type: "GET",
+            url: "GetStates/" + countryId,
+            success: function (data) {
+                cleanState();
+                $("#state").append(data);
+            }
+        });
+        var stateId = $("#state option").val();
+        $.ajax({
+            type: "GET",
+            url: "GetCities/" + stateId,
+            success: function (data) {
+                cleanCity();
+                $("#city").append(data);
+            }
+        });
+    });
+
+    $("#state").change(function () {
+        var stateId = $(this).val();
+        $.ajax({
+            type: "GET",
+            url: "GetCities/" + stateId,
+            success: function (data) {
+                cleanCity();
+                $("#city").append(data);
+            }
+        });
+    });
+
     function cleanState() {
         var stateListItems = $("#state option");
         stateListItems.remove();
@@ -141,56 +174,4 @@ $(document).ready(function () {
         var cityListItems = $("#city option");
         cityListItems.remove();
     }
-
-    function successFunction(data) {
-        if ($(this) === ("#country")) {
-            cleanState();
-            cleanCity();
-        }
-        if ($(this) === ("#state")) {
-            cleanState();
-        }
-        $(this).append(data);
-    }
-
-    function ajaxGet() {
-        var url = null;
-        if ($(this).attr("id") === ("select#country")) {
-            url = "GetStates/";
-        }
-        if ($(this).attr("id") === ("select#state")) {
-            url = "GetStates/";
-        }
-
-        var id = $(this).val();
-
-        $.ajax({
-            type: "GET",
-            url: url + id,
-            success: successFunction(date)
-        });
-    }
-
-    $("#country").change(function () {
-        var countryId = $(this).val();
-        $.ajax({
-            type: "GET",
-            url: "GetStates/" + countryId,
-            success: function (data) {
-                cleanState();
-                $("#state").append(data);
-                var stateId = $("#state option").val();
-                $.ajax({
-                    type: "GET",
-                    url: "GetCities/" + stateId,
-                    success: function (data) {
-                        cleanCity();
-                        $("#city").append(data);
-                    }
-                });
-            }
-        });
-    });
-
-    $("#state").change(ajaxGet);
-});
+}); 
