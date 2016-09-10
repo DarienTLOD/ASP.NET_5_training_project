@@ -174,4 +174,21 @@ $(document).ready(function () {
         var cityListItems = $("#city option");
         cityListItems.remove();
     }
-}); 
+
+    $("#calculate_ajax").on("click", function () {
+        $.ajax({
+            type: "post",
+            url: "Task",
+            data: $("form").serialize(),
+            success: function (data) {
+                $("#result").html(data);
+            }
+        });
+    });
+
+    $("#calculate_post").on("click", function () {
+        $.post("Task", $("form").serialize(), function (data) {
+            $("#result").html(data);
+        });
+    });
+});

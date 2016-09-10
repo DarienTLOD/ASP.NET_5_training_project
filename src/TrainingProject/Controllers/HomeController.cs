@@ -8,8 +8,7 @@ namespace TrainingProject.Controllers
 {
     public class HomeController : Controller
     {
-
-        ApplicationDbContext db = new ApplicationDbContext();
+        private readonly ApplicationDbContext _db = new ApplicationDbContext();
         public IActionResult Index()
         {
             return View();
@@ -26,24 +25,32 @@ namespace TrainingProject.Controllers
         }
 
         [Authorize]
+        [HttpGet]
         public IActionResult Task()
         {
-            var countries = new SelectList(db.Countries, "Id", "Name", 1);
+            var countries = new SelectList(_db.Countries, "Id", "Name", 1);
             ViewBag.Countries = countries;
-            var states = new SelectList(db.States.Where(c => c.CountryId == 1), "Id", "Name");
+            var states = new SelectList(_db.States.Where(c => c.CountryId == 1), "Id", "Name");
             ViewBag.States = states;
-            var cities = new SelectList(db.Cities.Where(c => c.StateId == 1), "Id", "Name");
+            var cities = new SelectList(_db.Cities.Where(c => c.StateId == 1), "Id", "Name");
             ViewBag.Cities = cities;
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Task(CalculateModel calc)
+        {           
+            return Json(Newtonsoft.Json.JsonConvert.SerializeObject(calc.Calculate()));
+        }
+
         public ActionResult GetStates(int id)
         {
-            return PartialView(db.States.Where(c => c.CountryId == id).ToList());
+            return PartialView(_db.States.Where(c => c.CountryId == id).ToList());
         }
+
         public ActionResult GetCities(int id)
         {
-            return PartialView(db.Cities.Where(c => c.StateId == id).ToList());
+            return PartialView(_db.Cities.Where(c => c.StateId == id).ToList());
         }
     }
 }

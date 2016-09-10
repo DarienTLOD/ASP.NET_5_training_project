@@ -4,15 +4,16 @@
 }
 
 #task_result_place {
-        margin-top: 20px;
+    margin-top: 20px;
 }
+
 .list-group-item {
     height: auto;
     padding: 20px 12px 20px 12px;
 }
 
 .pull-xs-right {
-    float: right!important;
+    float: right !important;
 }
 
 .label-default {
@@ -22,6 +23,7 @@
 .label-pill {
     padding-right: .6em;
     padding-left: .6em;
+    -ms-border-radius: 10rem;
     border-radius: 10rem;
 }
 
@@ -35,25 +37,48 @@
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
+    -ms-border-radius: 50px;
     border-radius: 50px;
     padding: 5px 10px 5px 10px;
 }
+
 p {
-    margin-bottom: 0; 
-}
-
-#variablesContainer {
-    margin-left: 35%; 
-}
-
-.variables {
-    width: 70px;
-    float: left;
-    display: inline-block;
-    margin: 20px 40px 20px 0;
+    margin-bottom: 0;
 }
 
 .selectpicker {
     margin: auto;
     position: relative;
+}
+
+.task-content {
+    width: 520px;
+    text-align: center;
+    margin: auto;
+}
+
+.task-content > .container > * {
+    text-align: center;
+}
+
+.btn-group {
+    text-align: center;
+    padding: 0;
+}
+
+.third-task {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.row > input,.row > form> input {
+    width: 120px;
+    float: left;
+    margin: 20px;
+}
+
+#result {
+    margin-top: 20px;
+    height: 25px;
+    font-size: 16px;
 }
